@@ -1,0 +1,15 @@
+let cities = ['Nashville', 'Charlotte', 'Asheville', 'Austin', 'Boulder'];
+
+let nums = [1, 50, 75, 200, 350, 525, 1000];
+
+// a method that returns undefined = forEach
+cities.forEach(city => console.log('Have you visited ' + city + '?'));
+
+//a method that returns a new array that meets this condition = filter
+let longCities = cities.filter(city => city.length > 7);
+
+//a method that returns a new array of numbers from the function = map
+let smallerNums = nums.map(num => num - 5);
+
+//a method that returns a boolean value = every or some
+nums.some(num => num < 0);
