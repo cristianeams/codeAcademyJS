@@ -7,7 +7,7 @@ let person = {
   age: 35,
   weekendAlarm: 'No alarms needed',
   weekAlarm: 'Alarm set to 7AM',
-  //create a method sayHello inside person object
+  //create a method sayHello inside person object and return a text value
   sayHello: () => {
     return 'Hello, there!';
   }
