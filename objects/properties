@@ -11,6 +11,10 @@ let person = {
   sayHello: () => {
     return 'Hello, there!';
   }
+  //best practice for ES6, no need for arrow or collon for function keyword
+   sayGoodbye() {
+    return 'Goodbye!';
+  }
 };
 
 person.hobbies = ['Hikking'];
