@@ -8,14 +8,23 @@ let person = {
   weekendAlarm: 'No alarms needed',
   weekAlarm: 'Alarm set to 7AM',
   //create a method sayHello inside person object and return a text value
-  sayHello: () => {
-    return 'Hello, there!';
+  sayHello(){
+     return `Hello, my name is ${this.name}`;
   }
   //best practice for ES6, no need for arrow or collon for function keyword
    sayGoodbye() {
     return 'Goodbye!';
   }
 };
+
+let friend = {
+  name: 'Juca',
+}
+
+//sets sayHello method of friend object to be the same as sayHello on the person object
+
+friend.sayHello = person.sayHello;
+
 
 person.hobbies = ['Hikking'];
 //checks what day it is, and sets day variable to it's value acording to condition
@@ -30,3 +39,7 @@ console.log(person['age']);
 console.log(person[alarm]);
 console.log(person.hobbies);
 console.log(person.sayHello());
+
+
+console.log(friend.sayHello());
+
