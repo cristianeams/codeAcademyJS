@@ -5,9 +5,14 @@ let person = {
   set age(newAge){
     if (typeof newAge === 'number') {
       this._age = newAge;
+      console.log(newAge);
     } else {
-      return 'Invalid input';
+      console.log('Invalid input');
     }
   }
 
 };
+
+//person.age = 'Thirty-nine';
+person.age = 39;
+
