@@ -8,11 +8,19 @@ let person = {
       console.log(newAge);
     } else {
       console.log('Invalid input');
+      return 'Invalid input';
     }
   }
+  
+  get age(){
+  console.log(`${this._name} is ${this._age} years old.`};
+  return this._age;
 
 };
 
 //person.age = 'Thirty-nine';
+//sets the value to 39
 person.age = 39;
+//gets the value of the age property
+console.log(person.age);
 
