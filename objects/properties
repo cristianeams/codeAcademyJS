@@ -6,9 +6,15 @@ let person = {
   name: 'Cristiane',
   age: 35,
   weekendAlarm: 'No alarms needed',
-  weekAlarm: 'Alarm set to 7AM'
+  weekAlarm: 'Alarm set to 7AM',
+  //create a method sayHello inside person object
+  sayHello: () => {
+    return 'Hello, there!';
+  }
 };
 
+person.hobbies = ['Hikking'];
+//checks what day it is, and sets day variable to it's value acording to condition
 if (day === 'Saturday' || day === 'Sunday') {
   alarm = 'weekendAlarm';
 } else {
@@ -18,3 +24,5 @@ if (day === 'Saturday' || day === 'Sunday') {
 console.log(person['name']);
 console.log(person['age']);
 console.log(person[alarm]);
+console.log(person.hobbies);
+console.log(person.sayHello());
