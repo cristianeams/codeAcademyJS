@@ -43,5 +43,5 @@ nurseOlynyk.takeVacationDays(5);
 //console.log(nurseOlynyk.remainingVacationDays);
 nurseOlynyk.addCertification('Genetics');
 //console.log(nurseOlynyk.certifications);
-
+//this is how to call the generatePassword method, by calling the method  directly from the class
 console.log(HospitalEmployee.generatePassword());
