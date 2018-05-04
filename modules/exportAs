@@ -1,0 +1,57 @@
+// change name of variables, using as as an alias
+//airplane.js file
+
+let flightRequirements = {
+  requiredStaff: 4,
+  requiredSpeedRange: 700,
+};
+
+
+function meetsStaffRequirements(availableStaff, requiredStaff) {
+  if (availableStaff.length >= requiredStaff) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+function meetsSpeedRangeRequirements( maxSpeed, minSpeed, requiredSpeedRange ){
+  let range = maxSpeed - minSpeed;
+  if (range > requiredSpeedRange) {
+    return true;
+  } else {
+    return false;
+  }
+  
+};
+
+export { availableAirplanes as aircrafts, flightRequirements as flightReqs, meetsStaffRequirements as meetsStaffReqs, meetsSpeedRangeRequirements as meetsSpeedRangeReqs
+};
+
+//missionControl.js file
+
+import { aircrafts, flightReqs, meetsStaffReqs, meetsSpeedRangeReqs }  from './airplane';
+
+function displayFuelCapacity() {
+  aircrafts.forEach(function(element) {
+    console.log('Fuel Capacity of ' + element['name'] + ': ' + element['fuelCapacity']);
+  });
+}
+
+displayFuelCapacity();
+
+function displayStaffStatus(){
+  aircrafts.forEach(function(element){
+    console.log(element.name + ' meets staff requirements: ' + meetsStaffReqs(element.availableStaff, flightReqs.requiredStaff));
+  });
+  
+};
+
+displayStaffStatus();
+
+function displaySpeedRangeStatus(){
+  aircrafts.forEach(function(element) {
+    console.log(element.name + ' meets speed range requirements: ' + meetsSpeedRangeReqs(element.maxSpeed, element.minSpeed, flightReqs.requiredSpeedRange));
+  });
+  
+};
