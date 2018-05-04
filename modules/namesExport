@@ -1,4 +1,4 @@
-// use the export keyword in front of variable declarations
+// use the export keyword in front of variable declarations airplane.js file
 
 export let availableAirplanes = [{
  name: 'AeroJet',
@@ -36,3 +36,33 @@ export function meetsSpeedRangeRequirements( maxSpeed, minSpeed, requiredSpeedRa
   }
   
 };
+
+// missionControl.js file
+
+import { availableAirplanes, flightRequirements, meetsStaffRequirements, meetsSpeedRangeRequirements }  from './airplane';
+
+function displayFuelCapacity() {
+  availableAirplanes.forEach(function(element) {
+    console.log('Fuel Capacity of ' + element['name'] + ': ' + element['fuelCapacity']);
+  });
+}
+
+displayFuelCapacity();
+
+function displayStaffStatus(){
+  availableAirplanes.forEach(function(element){
+    console.log(element.name + ' meets staff requirements: ' + meetsStaffRequirements(element.availableStaff, flightRequirements.requiredStaff));
+  });
+  
+};
+
+displayStaffStatus();
+
+function displaySpeedRangeStatus(){
+  availableAirplanes.forEach(function(element) {
+    console.log(element.name + ' meets speed range requirements: ' + meetsSpeedRangeRequirements(element.maxSpeed, element.minSpeed, flightRequirements.requiredSpeedRange));
+  });
+  
+};
+
+displaySpeedRangeStatus();
