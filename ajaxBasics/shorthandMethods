@@ -23,12 +23,14 @@ function expandUrl() {
 
 }
 
+
+//using the post method
 function shortenUrl() {
   //includes api key
   const urlWithKey = url + '?key=' + apiKey;
   //grab what user entered
   const urlToShorten = $inputField.val();
-  //using the post method
+//API requires contentType, not one of the paramethers in the method call
   $.post({
     //url i am making the request
     url: urlWithKey,
