@@ -1,0 +1,66 @@
+// Include data for accessing Google APIs
+
+const apiKey = 'AIzaSyAd-oiP2Sh80rIXvwy7OzF2Go53aXHBKIY';
+const url = 'https://www.googleapis.com/urlshortener/v1/url';
+const projection = 'FULL';
+
+// Some page elements
+
+const $inputField = $('#input');
+const $expandButton = $('#expand');
+const $shortenButton = $('#shorten');
+const $responseField = $('#responseField');
+
+// using jQuery ajax method. when you want data type to be json, use the getJSON method. does not use the dataType parameter
+
+function expandUrl() {
+  const urlToExpand = url + '?key=' + apiKey + '&shortUrl=' + $inputField.val();
+  $.getJSON(urlToExpand, response => {
+      $responseField.append('<p>Your expanded url is: </p><p>' +
+  response.longUrl + '</p>');
+  });
+ 
+
+}
+
+function shortenUrl() {
+  //includes api key
+  const urlWithKey = url + '?key=' + apiKey;
+  //grab what user entered
+  const urlToShorten = $inputField.val();
+  //using the post method
+  $.post({
+    //url i am making the request
+    url: urlWithKey,
+    //object to send data with request
+    data: JSON.stringify({longUrl: urlToShorten}),
+    //response format
+    dataType: 'json',
+    contentType: 'application/json',
+    success(response){
+      $responseField.append('<p>Your shortened url is: </p><p>' + response.id + '</p>');
+    }, error (jqXHR, status, errorThrown) {
+      console.log(jqXHR);
+    }
+    
+    
+  });
+  
+}
+
+function expand() {
+  $responseField.empty();
+  expandUrl();
+  return false;
+}
+
+function shorten() {
+  $responseField.empty();
+  shortenUrl();
+  return false;
+}
+
+// Call functions on submit
+
+$expandButton.click(expand);
+$shortenButton.click(shorten);
